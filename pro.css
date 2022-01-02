@@ -1,0 +1,274 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+body {
+  
+  font-family: "montserrat";
+}
+
+
+
+/* Styling nav */
+.container {
+  display: flex;
+}
+nav {
+  background: transparent;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+label.logo {
+  color: rgb(5, 2, 2);
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 100px;
+  font-weight: bold;
+}
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+nav ul li {
+  display: inline-block;
+  line-height: 80px;
+  margin: 0 5px;
+}
+nav ul li a {
+  background: darkgrey;
+  color: rgb(7, 17, 15);
+  font-size: 17px;
+  padding: 7px 13px;
+  border-radius: 15px;
+  text-transform: uppercase;
+}
+a.active,a:hover {
+  background: rgb(132, 151, 202);
+  transition: .5s;
+}
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+#check {
+  display: none;
+}
+
+/*      responsive nav                  */
+
+@media (max-width: 952px){
+  label.logo {
+    font-size: 17px;
+    padding-left: 40px;
+    border: 57%;
+    position: relative;
+    left: -30px;
+    background: transparent; 
+  }
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1055px){
+  .checkbtn{
+    display: block;
+    color: black;
+  }
+  label.logo {
+    color: black;
+  }
+  nav {
+    background: transparent;
+    position: fixed;
+    top: 0;
+    height: 25px;
+    width: 100%;
+    
+  }
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+  }
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+  nav ul li a {
+    font-size: 20px;
+    background: darkgrey;
+  }
+  a:hover,a.active {
+    background: rgb(100, 122, 182);
+    color: black;
+  }
+  #check:checked ~ ul {
+    left: 0;
+  }
+}/*     END of responsive nav                  */
+
+
+/*   Introductory Banner */
+.img-bg {
+  display: flex;
+  justify-content: baseline;
+}
+.banner {
+    margin: 50px;
+    margin-top: 25px;
+}
+
+
+/* discription section*/
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.services {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.item{
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  margin: 1.5px;
+  transition: .3s ease flex;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+.item.show {
+  flex: 8;
+}
+.s-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: transparent;
+  padding: 30px;
+  margin: 30px;
+  border-radius: 8px;
+  opacity: 0;
+}
+.item.show .s-image {
+  opacity: 1;
+}
+@media only screen and (max-width: 768px){
+  .services {
+    flex-direction: column;
+  }
+}
+
+
+/*  Form section */
+
+.form {
+  height: 100vh;
+  width: 100%;
+  background: #e0e0dc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.container{
+  width: 90%;
+  max-width: 500px;
+  margin:0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px #00000010;
+  background: #7a797a;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.form-group{
+  width: 100%;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.form-group input,
+.form-group textarea{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.199);
+  margin-top: 5px;
+}
+textarea{
+  resize: vertical;
+}
+button[type="submit"]{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 8px;
+  font-family: 'Montserrat';
+  color: rgb(27, 166, 247);
+  background-color: rgb(172, 193, 211);
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: .3s ease background-color;
+}
+button[type="submit"]:hover{
+  background-color: rgb(214, 226, 236);
+}
+#status{
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+}
+#status.success{
+  background-color: rgb(211, 250, 153);
+  color: green;
+  animation: status 4s ease  forwards;
+}
+#status.error{
+  background-color: rgb(250, 129, 92);
+  color: rgb(252, 252, 252);
+  animation: status 4s ease  forwards;
+}
+
+@keyframes status{
+  0%{
+    opacity: 1;
+    pointer-events: all;
+  }
+  90%{
+    opacity: 1;
+    pointer-events: all;
+  }
+  100%{
+    opacity: 0;
+    pointer-events: none;
+  }
+}
